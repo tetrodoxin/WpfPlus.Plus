@@ -1,9 +1,26 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp3.0;net45</TargetFrameworks>
+    <TargetFrameworks>netcoreapp3.0;net40</TargetFrameworks>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <UseWPF>true</UseWPF>
+    <PackageId>WpfPlus.Plus</PackageId>
+    <Title>WpfPlus.Plus</Title>
+    <Authors>Tetrodoxin</Authors>
+    <PackageProjectUrl>https://github.com/tetrodoxin/WpfPlus.Plus</PackageProjectUrl>
+    <PackageTags>WPF flat-design flatdesign themes</PackageTags>
+    
+  <PackageDescription>Fork of WpfPlus: Modern flat themes and useful controls for your next WPF Application
+  
+  - Includes TreeViews
+  - normalized selection colors for supported controls
+  - supports .Net Core 3.0
+  </PackageDescription>
   </PropertyGroup>
-
+  <PropertyGroup>
+    <VersionPrefix>1.2.5</VersionPrefix>
+    <VersionSuffix></VersionSuffix>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Icon></Icon>
+  </PropertyGroup>
 </Project>
