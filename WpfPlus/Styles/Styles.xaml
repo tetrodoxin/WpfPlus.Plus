@@ -12,6 +12,7 @@
         <ResourceDictionary Source="RadioButtonStyle.xaml" />
         <ResourceDictionary Source="GroupBoxStyle.xaml" />
         <ResourceDictionary Source="ListBoxStyle.xaml" />
+        <ResourceDictionary Source="TreeViewStyle.xaml" />
         <ResourceDictionary Source="DataGridStyle.xaml" />
         <ResourceDictionary Source="ScrollBarStyle.xaml" />
         <ResourceDictionary Source="ScrollViewerStyle.xaml" />
@@ -36,6 +37,7 @@
         <Style TargetType="{x:Type RadioButton}" BasedOn="{StaticResource RadioButtonStyle}" />
         <Style TargetType="{x:Type GroupBox}" BasedOn="{StaticResource GroupBoxStyle}" Resources="{StaticResource ContainedStyles}" />
         <Style TargetType="{x:Type ListBox}" BasedOn="{StaticResource ListBoxStyle}" />
+        <Style TargetType="{x:Type TreeView}" BasedOn="{StaticResource TreeViewStyle}" />
         <Style TargetType="{x:Type DataGrid}" BasedOn="{StaticResource DataGridStyle}" />
         <Style TargetType="{x:Type ScrollBar}" BasedOn="{StaticResource ScrollBarStyle}" />
         <Style TargetType="{x:Type ScrollViewer}" BasedOn="{StaticResource ScrollViewerStyle}" />

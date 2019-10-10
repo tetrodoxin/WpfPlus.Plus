@@ -1,38 +1,111 @@
-﻿<Window x:Class="ToolkitDemo.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ToolkitDemo"
-        xmlns:plus="clr-namespace:WpfPlus.Controls;assembly=WpfPlus"
-        mc:Ignorable="d"
-        Title="WpfPlus-Toolkit Demo"
-        Height="500"
-        Width="1080"
-        Style="{DynamicResource FlatWindowStyle}"
-        d:DataContext="{d:DesignInstance local:MainWindow}">
+﻿<Window
+    x:Class="ToolkitDemo.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ToolkitDemo"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:plus="clr-namespace:WpfPlus.Controls;assembly=WpfPlus"
+    Title="WpfPlus-Toolkit Demo"
+    Width="1080"
+    Height="680"
+    d:DataContext="{d:DesignInstance local:MainWindow}"
+    Style="{DynamicResource FlatWindowStyle}"
+    mc:Ignorable="d">
     <Window.Resources>
         <XmlDataProvider x:Key="TestList" XPath="/MockObjects/*">
             <x:XData>
                 <MockObjects xmlns="">
-                    <MockObject Name="Tom" LastName="Thomas" State="Canada" Phone="0232/2362334" />
-                    <MockObject Name="Max" LastName="Mustermann" State="Germany" Phone="0623/236234" />
-                    <MockObject Name="Samantha" LastName="Johanson" State="Nowhere" Phone="0266/342623" />
-                    <MockObject Name="Tom" LastName="Thomas" State="Canada" Phone="0232/2362334" />
-                    <MockObject Name="Max" LastName="Mustermann" State="Germany" Phone="0623/236234" />
-                    <MockObject Name="Samantha" LastName="Johanson" State="Nowhere" Phone="0266/342623" />
-                    <MockObject Name="Tom" LastName="Thomas" State="Canada" Phone="0232/2362334" />
-                    <MockObject Name="Max" LastName="Mustermann" State="Germany" Phone="0623/236234" />
-                    <MockObject Name="Samantha" LastName="Johanson" State="Nowhere" Phone="0266/342623" />
-                    <MockObject Name="Tom" LastName="Thomas" State="Canada" Phone="0232/2362334" />
-                    <MockObject Name="Max" LastName="Mustermann" State="Germany" Phone="0623/236234" />
-                    <MockObject Name="Samantha" LastName="Johanson" State="Nowhere" Phone="0266/342623" />
-                    <MockObject Name="Tom" LastName="Thomas" State="Canada" Phone="0232/2362334" />
-                    <MockObject Name="Max" LastName="Mustermann" State="Germany" Phone="0623/236234" />
-                    <MockObject Name="Samantha" LastName="Johanson" State="Nowhere" Phone="0266/342623" />
-                    <MockObject Name="Tom" LastName="Thomas" State="Canada" Phone="0232/2362334" />
-                    <MockObject Name="Max" LastName="Mustermann" State="Germany" Phone="0623/236234" />
-                    <MockObject Name="Samantha" LastName="Johanson" State="Nowhere" Phone="0266/342623" />
+                    <MockObject
+                        Name="Tom"
+                        LastName="Thomas"
+                        Phone="0232/2362334"
+                        State="Canada" />
+                    <MockObject
+                        Name="Max"
+                        LastName="Mustermann"
+                        Phone="0623/236234"
+                        State="Germany" />
+                    <MockObject
+                        Name="Samantha"
+                        LastName="Johanson"
+                        Phone="0266/342623"
+                        State="Nowhere" />
+                    <MockObject
+                        Name="Tom"
+                        LastName="Thomas"
+                        Phone="0232/2362334"
+                        State="Canada" />
+                    <MockObject
+                        Name="Max"
+                        LastName="Mustermann"
+                        Phone="0623/236234"
+                        State="Germany" />
+                    <MockObject
+                        Name="Samantha"
+                        LastName="Johanson"
+                        Phone="0266/342623"
+                        State="Nowhere" />
+                    <MockObject
+                        Name="Tom"
+                        LastName="Thomas"
+                        Phone="0232/2362334"
+                        State="Canada" />
+                    <MockObject
+                        Name="Max"
+                        LastName="Mustermann"
+                        Phone="0623/236234"
+                        State="Germany" />
+                    <MockObject
+                        Name="Samantha"
+                        LastName="Johanson"
+                        Phone="0266/342623"
+                        State="Nowhere" />
+                    <MockObject
+                        Name="Tom"
+                        LastName="Thomas"
+                        Phone="0232/2362334"
+                        State="Canada" />
+                    <MockObject
+                        Name="Max"
+                        LastName="Mustermann"
+                        Phone="0623/236234"
+                        State="Germany" />
+                    <MockObject
+                        Name="Samantha"
+                        LastName="Johanson"
+                        Phone="0266/342623"
+                        State="Nowhere" />
+                    <MockObject
+                        Name="Tom"
+                        LastName="Thomas"
+                        Phone="0232/2362334"
+                        State="Canada" />
+                    <MockObject
+                        Name="Max"
+                        LastName="Mustermann"
+                        Phone="0623/236234"
+                        State="Germany" />
+                    <MockObject
+                        Name="Samantha"
+                        LastName="Johanson"
+                        Phone="0266/342623"
+                        State="Nowhere" />
+                    <MockObject
+                        Name="Tom"
+                        LastName="Thomas"
+                        Phone="0232/2362334"
+                        State="Canada" />
+                    <MockObject
+                        Name="Max"
+                        LastName="Mustermann"
+                        Phone="0623/236234"
+                        State="Germany" />
+                    <MockObject
+                        Name="Samantha"
+                        LastName="Johanson"
+                        Phone="0266/342623"
+                        State="Nowhere" />
                 </MockObjects>
             </x:XData>
         </XmlDataProvider>
@@ -47,32 +120,60 @@
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="4*" />
         </Grid.ColumnDefinitions>
-        <plus:SpacedStackPanel Grid.Row="0"
-                               Grid.Column="0"
-                               Grid.ColumnSpan="2"
-                               Orientation="Horizontal"
-                               Margin="5">
-            <Button>Enabled Button</Button>
+        <plus:SpacedStackPanel
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Margin="5"
+            Orientation="Horizontal">
+            <Button Click="Button_Click">Enabled Button</Button>
             <Button IsEnabled="False">Disabled Button</Button>
         </plus:SpacedStackPanel>
-        <plus:SimpleForm Grid.Row="1"
-                         Grid.Column="0"
-                         Margin="5">
+        <plus:SimpleForm
+            Grid.Row="1"
+            Grid.Column="0"
+            Height="620"
+            Margin="5">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="93" />
+                <ColumnDefinition Width="4" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="0">Enabled:</TextBlock>
-            <TextBox Grid.Column="1" />
-            <TextBlock Grid.Column="0">Disabled:</TextBlock>
-            <TextBox Grid.Column="1"
-                     IsEnabled="False"
-                     Text="You'll never be able to edit me!" />
-            <TextBlock Grid.Column="0">Numeric:</TextBlock>
-            <TextBox Grid.Column="1"
-                     Text="{Binding TextBoxTestIntegerValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-            <TextBlock Grid.Column="0">Enabled:</TextBlock>
-            <ComboBox Grid.Column="1">
+            <TextBlock
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Margin="0,5,3,600">
+                Enabled:
+            </TextBlock>
+            <TextBox Grid.Column="2" Margin="3,0,0,499" />
+            <TextBlock
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Margin="0,33,3,472">
+                Disabled:
+            </TextBlock>
+            <TextBox
+                Grid.Column="2"
+                Margin="3,30,0,469"
+                IsEnabled="False"
+                Text="You'll never be able to edit me!" />
+            <TextBlock
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Margin="0,62,3,443">
+                Numeric:
+            </TextBlock>
+            <TextBox
+                Grid.Column="2"
+                Margin="3,58,0,441"
+                Text="{Binding TextBoxTestIntegerValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Margin="0,91,3,414">
+                Enabled:
+            </TextBlock>
+            <ComboBox Grid.Column="2" Margin="3,88,0,411">
                 <ComboBox.Items>
                     <ComboBoxItem>This</ComboBoxItem>
                     <ComboBoxItem>is</ComboBoxItem>
@@ -80,9 +181,16 @@
                     <ComboBoxItem>test</ComboBoxItem>
                 </ComboBox.Items>
             </ComboBox>
-            <TextBlock Grid.Column="0">Disabled:</TextBlock>
-            <ComboBox Grid.Column="1"
-                      IsEnabled="False">
+            <TextBlock
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Margin="0,120,3,385">
+                Disabled:
+            </TextBlock>
+            <ComboBox
+                Grid.Column="2"
+                Margin="3,116,0,383"
+                IsEnabled="False">
                 <ComboBox.Items>
                     <ComboBoxItem>This</ComboBoxItem>
                     <ComboBoxItem>is</ComboBoxItem>
@@ -90,9 +198,16 @@
                     <ComboBoxItem>test</ComboBoxItem>
                 </ComboBox.Items>
             </ComboBox>
-            <TextBlock Grid.Column="0">Editable Enabled:</TextBlock>
-            <ComboBox Grid.Column="1"
-                      IsEditable="True">
+            <TextBlock
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Margin="0,149,3,356">
+                Editable Enabled:
+            </TextBlock>
+            <ComboBox
+                Grid.Column="2"
+                Margin="3,146,0,353"
+                IsEditable="True">
                 <ComboBox.Items>
                     <ComboBoxItem>This</ComboBoxItem>
                     <ComboBoxItem>is</ComboBoxItem>
@@ -100,10 +215,17 @@
                     <ComboBoxItem>test</ComboBoxItem>
                 </ComboBox.Items>
             </ComboBox>
-            <TextBlock Grid.Column="0">Editable Disabled:</TextBlock>
-            <ComboBox Grid.Column="1"
-                      IsEditable="True"
-                      IsEnabled="False">
+            <TextBlock
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Margin="0,178,3,327">
+                Editable Disabled:
+            </TextBlock>
+            <ComboBox
+                Grid.Column="2"
+                Margin="3,174,0,325"
+                IsEditable="True"
+                IsEnabled="False">
                 <ComboBox.Items>
                     <ComboBoxItem>This</ComboBoxItem>
                     <ComboBoxItem>is</ComboBoxItem>
@@ -111,10 +233,17 @@
                     <ComboBoxItem>test</ComboBoxItem>
                 </ComboBox.Items>
             </ComboBox>
-            <TextBlock Grid.Column="0">Numeric:</TextBlock>
-            <ComboBox Grid.Column="1"
-                      IsEditable="True"
-                      Text="{Binding TextBoxTestIntegerValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            <TextBlock
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Margin="0,207,3,298">
+                Numeric:
+            </TextBlock>
+            <ComboBox
+                Grid.Column="2"
+                Margin="3,204,0,295"
+                IsEditable="True"
+                Text="{Binding TextBoxTestIntegerValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                 <ComboBox.Items>
                     <ComboBoxItem>0</ComboBoxItem>
                     <ComboBoxItem>42</ComboBoxItem>
@@ -122,46 +251,85 @@
                     <ComboBoxItem>keks</ComboBoxItem>
                 </ComboBox.Items>
             </ComboBox>
-            <Button Grid.Column="0"
-                    Grid.ColumnSpan="2"
-                    HorizontalAlignment="Right">
+            <Button
+                Grid.Column="2"
+                Margin="0,232,0,261"
+                HorizontalAlignment="Right">
                 Save Button
             </Button>
+            <TreeView Grid.Column="2">
+                <TreeViewItem Header="Alpha" IsExpanded="True">
+                    <TreeViewItem Header="Tier" />
+                    <TreeViewItem Header="Centauri" />
+                </TreeViewItem>
+                <TreeViewItem Header="Bravo" />
+                <TreeViewItem Header="Charlie" IsSelected="True" />
+                <TreeViewItem Header="Delta" />
+                <TreeViewItem Header="Papa" IsExpanded="True">
+                    <TreeViewItem Header="Roach" />
+                    <TreeViewItem Header="Smurf">
+                        <TreeViewItem Header="One" />
+                        <TreeViewItem Header="Two" />
+                    </TreeViewItem>
+                    <TreeViewItem Header="Dad" IsExpanded="True">
+                        <TreeViewItem Header="One" />
+                        <TreeViewItem Header="Two" />
+                    </TreeViewItem>
+                </TreeViewItem>
+                <TreeViewItem Header="Tango" />
+            </TreeView>
         </plus:SimpleForm>
-        <GridSplitter Grid.Row="1"
-                      Grid.Column="1"
-                      HorizontalAlignment="Stretch" />
-        <ScrollViewer Grid.Row="1"
-                      Grid.Column="2"
-                      HorizontalScrollBarVisibility="Disabled"
-                      VerticalScrollBarVisibility="Auto">
+        <GridSplitter
+            Grid.Row="1"
+            Grid.Column="1"
+            HorizontalAlignment="Stretch" />
+        <ScrollViewer
+            Grid.Row="1"
+            Grid.Column="2"
+            HorizontalScrollBarVisibility="Disabled"
+            VerticalScrollBarVisibility="Auto">
             <WrapPanel>
-                <GroupBox Header="GroupBox 1"
-                          Margin="5"
-                          Padding="0"
-                          Width="400"
-                          Height="200"
-                          VerticalAlignment="Top">
-                    <DataGrid DataContext="{Binding Source={StaticResource TestList}}"
-                              ItemsSource="{Binding Mode=Default, XPath=/MockObjects/MockObject}"
-                              AutoGenerateColumns="False"
-                              BorderThickness="0"
-                              AlternationCount="2">
+                <GroupBox
+                    Width="400"
+                    Height="200"
+                    Margin="5"
+                    Padding="0"
+                    VerticalAlignment="Top"
+                    Header="GroupBox 1">
+                    <DataGrid
+                        AlternationCount="2"
+                        AutoGenerateColumns="False"
+                        BorderThickness="0"
+                        DataContext="{Binding Source={StaticResource TestList}}"
+                        ItemsSource="{Binding Mode=Default, XPath=/MockObjects/MockObject}">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Name" Binding="{Binding XPath=@Name}" Width="*" />
-                            <DataGridTextColumn Header="LastName" Binding="{Binding XPath=@LastName}" Width="*" />
-                            <DataGridTextColumn Header="State" Binding="{Binding XPath=@State}" Width="*" />
-                            <DataGridTextColumn Header="Phone" Binding="{Binding XPath=@Phone}" Width="*" />
+                            <DataGridTextColumn
+                                Width="*"
+                                Binding="{Binding XPath=@Name}"
+                                Header="Name" />
+                            <DataGridTextColumn
+                                Width="*"
+                                Binding="{Binding XPath=@LastName}"
+                                Header="LastName" />
+                            <DataGridTextColumn
+                                Width="*"
+                                Binding="{Binding XPath=@State}"
+                                Header="State" />
+                            <DataGridTextColumn
+                                Width="*"
+                                Binding="{Binding XPath=@Phone}"
+                                Header="Phone" />
                         </DataGrid.Columns>
                     </DataGrid>
                 </GroupBox>
-                <GroupBox Header="GroupBox 2"
-                          Margin="5"
-                          Padding="0"
-                          Width="200"
-                          Height="250"
-                          VerticalAlignment="Top">
-                    <ListBox BorderThickness="0">
+                <GroupBox
+                    Width="200"
+                    Height="250"
+                    Margin="5"
+                    Padding="0"
+                    VerticalAlignment="Top"
+                    Header="GroupBox 2">
+                    <ListBox BorderThickness="0" MouseLeftButtonUp="ListBox_MouseLeftButtonUp">
                         <ListBoxItem>Item 1</ListBoxItem>
                         <ListBoxItem>Item 2</ListBoxItem>
                         <ListBoxItem>Item 3</ListBoxItem>
@@ -185,12 +353,13 @@
                         <ListBoxItem>Item 42</ListBoxItem>
                     </ListBox>
                 </GroupBox>
-                <GroupBox Header="GroupBox 3"
-                          Margin="5"
-                          Padding="0"
-                          Width="200"
-                          Height="200"
-                          VerticalAlignment="Top">
+                <GroupBox
+                    Width="200"
+                    Height="200"
+                    Margin="5"
+                    Padding="0"
+                    VerticalAlignment="Top"
+                    Header="GroupBox 3">
                     <ListBox BorderThickness="0" IsEnabled="False">
                         <ListBoxItem>Item 1</ListBoxItem>
                         <ListBoxItem>Item 2</ListBoxItem>
@@ -207,12 +376,13 @@
                         <ListBoxItem>Item 13</ListBoxItem>
                         <ListBoxItem>Item 14</ListBoxItem>
                     </ListBox>
-                </GroupBox> 
-                <TabControl Margin="5"
-                            Width="300"
-                            Height="200"
-                            VerticalAlignment="Top"
-                            TabStripPlacement="{Binding ElementName=TabStripPlacements, Path=SelectedItem.Tag}">
+                </GroupBox>
+                <TabControl
+                    Width="300"
+                    Height="200"
+                    Margin="5"
+                    VerticalAlignment="Top"
+                    TabStripPlacement="{Binding ElementName=TabStripPlacements, Path=SelectedItem.Tag}">
                     <TabItem Header="Page 1">
                         <plus:SimpleForm Margin="5">
                             <TextBlock>TabStripPlacement:</TextBlock>
@@ -235,12 +405,12 @@
                         </plus:SimpleForm>
                     </TabItem>
                     <TabItem Header="Page 2">
-                        <GroupBox Header="Contained GroupBox"
-                                  Width="250"
-                                  Height="150" />
+                        <GroupBox
+                            Width="250"
+                            Height="150"
+                            Header="Contained GroupBox" />
                     </TabItem>
-                    <TabItem Header="Disabled Page"
-                             IsEnabled="False">
+                    <TabItem Header="Disabled Page" IsEnabled="False">
                         <TextBlock Text="You should never read this..." />
                     </TabItem>
                 </TabControl>
