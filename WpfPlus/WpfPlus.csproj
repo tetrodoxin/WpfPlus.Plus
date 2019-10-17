@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp3.0;net40</TargetFrameworks>
+    <TargetFrameworks>netcoreapp3.0;net45</TargetFrameworks>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <UseWPF>true</UseWPF>
     <PackageId>WpfPlus.Plus</PackageId>
@@ -18,9 +18,12 @@
   </PackageDescription>
   </PropertyGroup>
   <PropertyGroup>
-    <VersionPrefix>1.2.5</VersionPrefix>
+    <VersionPrefix>1.2.7</VersionPrefix>
     <VersionSuffix></VersionSuffix>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Icon></Icon>
   </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.0.30" />
+  </ItemGroup>
 </Project>
