@@ -20,6 +20,7 @@
 
     <!--  Window  -->
     <SolidColorBrush x:Key="WindowBackgroundBrush" Color="{DynamicResource BackgroundColor3}" />
+    <SolidColorBrush x:Key="WindowShadowBackgroundBrush" Color="{DynamicResource BackgroundColor5}" />
     <SolidColorBrush x:Key="WindowForegroundBrush" Color="{DynamicResource ForegroundColor1}" />
 
     <!--  TabControl  -->

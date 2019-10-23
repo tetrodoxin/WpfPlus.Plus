@@ -18,7 +18,7 @@
   </PackageDescription>
   </PropertyGroup>
   <PropertyGroup>
-    <VersionPrefix>1.2.7</VersionPrefix>
+    <VersionPrefix>1.2.8</VersionPrefix>
     <VersionSuffix></VersionSuffix>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Icon></Icon>
