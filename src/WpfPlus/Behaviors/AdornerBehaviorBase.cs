@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xaml.Behaviors;
+using System;
 using System.Windows;
 using System.Windows.Documents;
 using System.Windows.Media;
@@ -9,8 +10,13 @@ namespace WpfPlus.Behaviors
         where TElement : FrameworkElement
         where TAdorner : Adorner
     {
-        private TAdorner _adorner = null;
-        private AdornerLayer _layer = null;
+        private TAdorner? _adorner = null;
+        private AdornerLayer? _lazyLayer;
+
+        private AdornerLayer? Layer
+            => _lazyLayer is null
+                ? (_lazyLayer = createLayer())
+                : _lazyLayer;
 
         public static readonly DependencyProperty AdornerParentProperty =
             DependencyProperty.Register("AdornerParent", typeof(Visual), typeof(AdornerBehaviorBase<TElement, TAdorner>), new PropertyMetadata(null, onAdornerParentPropertyChanged));
@@ -25,20 +31,15 @@ namespace WpfPlus.Behaviors
         {
             get
             {
-                if (AssociatedObject != null && _adorner == null)
+                if (AssociatedObject != null && _adorner is null)
                 {
-                    if (_layer == null)
-                    {
-                        initLayer();
-                    }
-
-                    if (_layer != null)
+                    if (Layer != null)
                     {
                         initAdorner();
                     }
                 }
 
-                return _adorner;
+                return _adorner!;
             }
         }
 
@@ -52,8 +53,7 @@ namespace WpfPlus.Behaviors
         {
             base.OnAttached();
 
-            initLayer();
-            if (_layer != null)
+            if (Layer != null)
             {
                 initAdorner();
             }
@@ -66,7 +66,7 @@ namespace WpfPlus.Behaviors
 
         protected void UpdateAdornerVisibility()
         {
-            if (_layer == null || Adorner == null)
+            if (Layer == null || Adorner == null)
             {
                 return;
             }
@@ -94,12 +94,12 @@ namespace WpfPlus.Behaviors
             if (bhv.AdornerParent != null && bhv._adorner != null)
             {
                 var doAttach = bhv.IsAdornerVisible;
-                if (bhv._layer != null)
+                if (bhv.Layer != null)
                 {
                     bhv.detachAdorner();
                 }
-                bhv.initLayer();
-                if (bhv._layer != null && doAttach)
+                bhv.createLayer();
+                if (bhv.Layer != null && doAttach)
                 {
                     bhv.attachAdorner();
                 }
@@ -108,13 +108,13 @@ namespace WpfPlus.Behaviors
 
         private void attachAdorner()
         {
-            _layer.Add(Adorner);
+            Layer?.Add(Adorner);
             IsAdornerVisible = true;
         }
 
         private void detachAdorner()
         {
-            _layer.Remove(Adorner);
+            Layer?.Remove(Adorner);
             IsAdornerVisible = false;
         }
 
@@ -122,8 +122,7 @@ namespace WpfPlus.Behaviors
         {
             AssociatedObject.Loaded -= handleAssociatedObject_Loaded;
 
-            initLayer();
-            if (_layer != null)
+            if (Layer != null)
             {
                 initAdorner();
                 UpdateAdornerVisibility();
@@ -135,16 +134,7 @@ namespace WpfPlus.Behaviors
             _adorner = CreateAdorner();
         }
 
-        private void initLayer()
-        {
-            if (AdornerParent == null)
-            {
-                _layer = AdornerLayer.GetAdornerLayer(AssociatedObject);
-            }
-            else
-            {
-                _layer = AdornerLayer.GetAdornerLayer(AdornerParent);
-            }
-        }
+        private AdornerLayer createLayer() 
+            => AdornerParent == null ? AdornerLayer.GetAdornerLayer(AssociatedObject) : AdornerLayer.GetAdornerLayer(AdornerParent);
     }
 }

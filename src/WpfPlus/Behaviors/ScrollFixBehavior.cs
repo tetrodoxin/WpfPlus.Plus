@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xaml.Behaviors;
+using System.Runtime.Versioning;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -19,16 +20,15 @@ namespace WpfPlus.Behaviors
 
         private static void handlePreviewMouseWheel(object sender, MouseWheelEventArgs e)
         {
-            if (!e.Handled && sender != null)
+            if (!e.Handled && sender != null && sender is ScrollViewer viewer)
             {
-                var viewer = sender as ScrollViewer;
                 viewer.PreviewMouseWheel -= handlePreviewMouseWheel;
                 var originalSource = e.OriginalSource as UIElement;
                 originalSource?.RaiseEvent(e);
                 viewer.PreviewMouseWheel += handlePreviewMouseWheel;
 
                 if (!e.Handled && !((e.Delta > 0 && viewer.VerticalOffset == 0)
-                || (e.Delta <= 0 && viewer.VerticalOffset >= viewer.ExtentHeight - viewer.ViewportHeight)))
+                    || (e.Delta <= 0 && viewer.VerticalOffset >= viewer.ExtentHeight - viewer.ViewportHeight)))
                 {
                     e.Handled = true;
                     var eventArg = new MouseWheelEventArgs(e.MouseDevice, e.Timestamp, e.Delta);

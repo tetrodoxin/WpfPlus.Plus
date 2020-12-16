@@ -13,7 +13,7 @@ namespace WpfPlus.Behaviors
 
         #region Text
 
-        public string Text
+        public string? Text
         {
             get { return (string)GetValue(TextProperty); }
             set { SetValue(TextProperty, value); }
@@ -54,7 +54,7 @@ namespace WpfPlus.Behaviors
         public static readonly DependencyProperty TextColorProperty =
             DependencyProperty.Register("TextColor", typeof(Brush), typeof(TextOverlayAdorner), new FrameworkPropertyMetadata(onTextColorPropertyChanged) { AffectsRender = true });
 
-        public Brush TextColor
+        public Brush? TextColor
         {
             get { return (Brush)GetValue(TextColorProperty); }
             set { SetValue(TextColorProperty, value); }
@@ -184,7 +184,6 @@ namespace WpfPlus.Behaviors
             : base(adornedElement)
         {
             _visuals = new VisualCollection(this);
-            var control = AdornedElement as Control;
             IsHitTestVisible = false;  // make adorner transparent for mouse events
 
             _textblock = new TextBlock()
@@ -197,23 +196,27 @@ namespace WpfPlus.Behaviors
                 FontStyle = TextFontStyle,
             };
 
+            var control = AdornedElement as Control;
             _contentPresenter = new ContentPresenter()
             {
                 Content = _textblock,
-                Width = control.Width,
-                Height = control.Height,
+                Width = control?.Width ?? 0,
+                Height = control?.Height ?? 0,
             };
 
             _visuals.Add(_contentPresenter);
 
-            control.SizeChanged += control_SizeChanged;
+            if(control != null)
+                control.SizeChanged += control_SizeChanged;
         }
 
         private void control_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            var control = AdornedElement as Control;
-            _contentPresenter.Width = control.ActualWidth;
-            _contentPresenter.Height = control.ActualHeight;
+            if (AdornedElement is Control control)
+            {
+                _contentPresenter.Width = control.ActualWidth;
+                _contentPresenter.Height = control.ActualHeight;
+            }
         }
 
         protected override Size ArrangeOverride(Size finalSize)

@@ -24,7 +24,7 @@ namespace WpfPlus.Controls
             int lastColumn = -1;
             int currentRow = -1;
 
-            foreach (UIElement child in InternalChildren)
+            foreach (UIElement? child in InternalChildren)
             {
                 int childColumn = GetColumn(child);
                 if (childColumn <= lastColumn || lastColumn == -1)
@@ -38,8 +38,7 @@ namespace WpfPlus.Controls
                 lastColumn = childColumn;
                 SetRow(child, currentRow);
 
-                FrameworkElement control = child as FrameworkElement;
-                if (control != null)
+                if (child is FrameworkElement control)
                     control.VerticalAlignment = VerticalAlignment.Center;
             }
         }

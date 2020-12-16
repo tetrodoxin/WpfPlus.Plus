@@ -28,9 +28,9 @@ namespace WpfPlus.Behaviors
         #region Suggestion
 
         public static readonly DependencyProperty SuggestionProperty =
-            DependencyProperty.Register("Suggestion", typeof(string), typeof(TextboxWatermarkBehavior), new PropertyMetadata(null, onSuggestionPropertyChanged));
+            DependencyProperty.Register("Suggestion", typeof(string), typeof(TextboxWatermarkBehavior), new PropertyMetadata(null, onSuggestionPropertyChanged, coerceSuggestionProperty));
 
-        public string Suggestion
+        public string? Suggestion
         {
             get { return (string)GetValue(SuggestionProperty); }
             set { SetValue(SuggestionProperty, value); }
@@ -42,6 +42,8 @@ namespace WpfPlus.Behaviors
             bhv.updateText();
         }
 
+        private static object? coerceSuggestionProperty(DependencyObject obj, object value) => value ?? string.Empty;
+
         #endregion Suggestion
 
         #region SuggestionColor
@@ -49,7 +51,7 @@ namespace WpfPlus.Behaviors
         public static readonly DependencyProperty SuggestionColorProperty =
             DependencyProperty.Register("SuggestionColor", typeof(Brush), typeof(TextboxWatermarkBehavior), new FrameworkPropertyMetadata(onSuggestionColorPropertyChanged) { AffectsRender = true });
 
-        public Brush SuggestionColor
+        public Brush? SuggestionColor
         {
             get { return (Brush)GetValue(SuggestionColorProperty); }
             set { SetValue(SuggestionColorProperty, value); }
@@ -90,7 +92,7 @@ namespace WpfPlus.Behaviors
         public static readonly DependencyProperty TextColorProperty =
             DependencyProperty.Register("TextColor", typeof(Brush), typeof(TextboxWatermarkBehavior), new FrameworkPropertyMetadata(onTextColorPropertyChanged) { AffectsRender = true });
 
-        public Brush TextColor
+        public Brush? TextColor
         {
             get { return (Brush)GetValue(TextColorProperty); }
             set { SetValue(TextColorProperty, value); }

@@ -13,8 +13,11 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ToolkitDemo
+namespace Demo
 {
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
     public partial class MainWindow : Window
     {
         public int TextBoxTestIntegerValue { get; set; } = 42;
@@ -22,19 +25,14 @@ namespace ToolkitDemo
         public MainWindow()
         {
             InitializeComponent();
+
             DataContext = this;
-            this.Activated += MainWindow_Activated;
 
             var props = typeof(SystemColors).GetProperties(System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.GetProperty)
                 .Where(p => p.PropertyType == typeof(Color))
                 .ToList();
 
             var l = props.Select(p => p.GetValue(null, new object[0])).ToList();
-        }
-
-        private void MainWindow_Activated(object sender, EventArgs e)
-        {
-
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

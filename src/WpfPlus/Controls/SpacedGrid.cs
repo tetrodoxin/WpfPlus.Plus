@@ -78,7 +78,7 @@ namespace WpfPlus.Controls
             int columnCount = 0;
             int rowCount = 0;
 
-            foreach (UIElement child in InternalChildren)
+            foreach (UIElement? child in InternalChildren)
             {
                 int endColumn = GetColumn(child) + GetColumnSpan(child);
                 int endRow = GetRow(child) + GetRowSpan(child);
@@ -87,7 +87,7 @@ namespace WpfPlus.Controls
                 rowCount = endRow > rowCount ? endRow : rowCount;
             }
 
-            foreach (UIElement child in InternalChildren)
+            foreach (UIElement? child in InternalChildren)
             {
                 if (!(child is FrameworkElement))
                     continue;
