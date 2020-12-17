@@ -4,28 +4,34 @@
     <TargetFrameworks>netcoreapp3.1;net5.0-windows7</TargetFrameworks>
     <LangVersion>9.0</LangVersion>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <Version>1.3.0</Version>
-    <PackageVersion>1.3.0</PackageVersion>
+    <Version>1.3.1</Version>
+    <PackageVersion>1.3.1</PackageVersion>
     <UseWPF>true</UseWPF>
     <PackageId>WpfPlus.Plus</PackageId>
     <Title>WpfPlus.Plus</Title>
-    <Nullable>enable</Nullable>    
+    <Nullable>enable</Nullable>
     <Authors>Tetrodoxin</Authors>
     <PackageProjectUrl>https://github.com/tetrodoxin/WpfPlus.Plus</PackageProjectUrl>
     <PackageTags>WPF flat-design flatdesign themes</PackageTags>
-    
-  <PackageDescription>Fork of WpfPlus: Modern flat themes and useful controls for your next WPF Application
-  
-  - Includes TreeViews
-  - normalized selection colors for supported controls
-  - supports .Net Core 3.1, Net 5.0 for Windows (&gt;=7)
-  </PackageDescription>
-  </PropertyGroup>
-  <PropertyGroup>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Icon></Icon>
     <RepositoryUrl>https://github.com/tetrodoxin/WpfPlus.Plus</RepositoryUrl>
+
+    <PackageDescription>
+      Fork of WpfPlus: Modern flat themes and useful controls for your next WPF Application
+
+      - Includes TreeViews
+      - normalized selection colors for supported controls
+      - includes base classes for view models, delegate based commands, synchronized view model collections
+      - supports .Net Core 3.1, Net 5.0 for Windows (&gt;=7)
+    </PackageDescription>
+
+    <PackageReleaseNotes>now includes:
+- 'Alias' markup extension for XAML
+- FlatResourceDictionary
+- TabExt class for Attached Properties for TabControls</PackageReleaseNotes>
   </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="XamlBehaviors.Mirror" Version="1.1.29" />
   </ItemGroup>
