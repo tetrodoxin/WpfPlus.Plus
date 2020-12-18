@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace WpfPlus
+namespace WpfPlus.Controls
 {
     public static class TabExt
     {

@@ -90,23 +90,6 @@ namespace WpfPlus.Controls
             obj.SetValue(WatermarkTextMarginProperty, value);
         }
 
-        private static Behavior<T>? addSingularBehaviorTo<T>(T target, Behavior<T> behavior) where T : DependencyObject
-        {
-            if ((object)target == null || behavior == null) return null;
-
-            var behaviors = Interaction.GetBehaviors(target);
-            var tp = behavior.GetType();
-
-            var existing = behaviors.FirstOrDefault(p => p.GetType().Equals(tp)) as Behavior<T>;
-
-            if (existing == null)
-            {
-                behaviors.Add(behavior);
-                existing = behavior;
-            }
-
-            return existing;
-        }
 
         private static TextboxWatermarkBehavior createWatermarkBehavior(FrameworkElement c)
         {
@@ -136,7 +119,7 @@ namespace WpfPlus.Controls
                 {
                     var behavior = createWatermarkBehavior(textBox);
 
-                    behavior = (TextboxWatermarkBehavior?)addSingularBehaviorTo(textBox, behavior);
+                    behavior = (TextboxWatermarkBehavior?)Behaviors.AddSingularBehaviorTo(textBox, behavior);
                     if (behavior != null)
                     {
                         behavior.TextFontStyle = newValue;
@@ -160,7 +143,7 @@ namespace WpfPlus.Controls
                 {
                     var behavior = createWatermarkBehavior(textBox);
 
-                    behavior = (TextboxWatermarkBehavior?)addSingularBehaviorTo(textBox, behavior);
+                    behavior = (TextboxWatermarkBehavior?)Behaviors.AddSingularBehaviorTo(textBox, behavior);
                     if (behavior != null)
                     {
                         behavior.TextFontWeight = newValue;
@@ -184,7 +167,7 @@ namespace WpfPlus.Controls
                 {
                     var behavior = createWatermarkBehavior(textBox);
 
-                    behavior = (TextboxWatermarkBehavior?)addSingularBehaviorTo(textBox, behavior);
+                    behavior = (TextboxWatermarkBehavior?)Behaviors.AddSingularBehaviorTo(textBox, behavior);
                     if (behavior != null)
                     {
                         behavior.HorizontalTextAlignment = newValue;
@@ -208,7 +191,7 @@ namespace WpfPlus.Controls
                 {
                     var behavior = createWatermarkBehavior(textBox);
 
-                    behavior = (TextboxWatermarkBehavior?)addSingularBehaviorTo(textBox, behavior);
+                    behavior = (TextboxWatermarkBehavior?)Behaviors.AddSingularBehaviorTo(textBox, behavior);
                     if (behavior != null)
                     {
                         behavior.TextColor = newValue;
@@ -232,7 +215,7 @@ namespace WpfPlus.Controls
                 {
                     var behavior = createWatermarkBehavior(textBox);
 
-                    behavior = (TextboxWatermarkBehavior?)addSingularBehaviorTo(textBox, behavior);
+                    behavior = (TextboxWatermarkBehavior?)Behaviors.AddSingularBehaviorTo(textBox, behavior);
                     if (behavior != null)
                     {
                         behavior.TextMargin = newValue;
@@ -262,7 +245,7 @@ namespace WpfPlus.Controls
                 {
                     var behavior = createWatermarkBehavior(textBox);
 
-                    behavior = (TextboxWatermarkBehavior?)addSingularBehaviorTo(textBox, behavior);
+                    behavior = (TextboxWatermarkBehavior?)Behaviors.AddSingularBehaviorTo(textBox, behavior);
                     if (behavior != null)
                     {
                         behavior.Text = (string)e.NewValue;

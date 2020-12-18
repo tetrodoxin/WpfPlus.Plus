@@ -6,11 +6,13 @@
     xmlns:local="clr-namespace:Demo"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:plus="clr-namespace:WpfPlus.Controls;assembly=WpfPlus"
+    x:Name="LocalWindow"
     Title="WpfPlus-Toolkit Demo"
     Width="1080"
     Height="680"
     d:DataContext="{d:DesignInstance local:MainWindow}"
     Style="{DynamicResource FlatWindowStyle}"
+    WindowStyle="None"
     mc:Ignorable="d">
     <Window.Resources>
         <XmlDataProvider x:Key="TestList" XPath="/MockObjects/*">
@@ -296,6 +298,7 @@
                     Margin="5"
                     Padding="0"
                     VerticalAlignment="Top"
+                    plus:ControlExt.DragAreaForWindow="{Binding ElementName=LocalWindow}"
                     Header="GroupBox 1">
                     <DataGrid
                         AlternationCount="2"
