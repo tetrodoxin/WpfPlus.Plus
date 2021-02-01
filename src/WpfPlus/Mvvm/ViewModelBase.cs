@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
+using System.Reflection;
 
 namespace WpfPlus.Mvvm
 {
@@ -9,7 +11,7 @@ namespace WpfPlus.Mvvm
     /// Additionally, there is tracking mechanism for changed properties.
     /// </summary>
     /// <seealso cref="INotifyPropertyChanged" />
-    public class ViewModelBase : INotifyPropertyChanged
+    public abstract class ViewModelBase : INotifyPropertyChanged
     {
         /// <summary>
         /// Contains, if <see cref="DirtyPropertyTrackingEnabled"/> is <c>true</c>,
@@ -26,6 +28,10 @@ namespace WpfPlus.Mvvm
         /// </summary>
         protected HashSet<string> NonTrackedProperties = new HashSet<string>();
 
+
+        protected Func<string, bool> IsValidPropertyName { get; }
+
+        private HashSet<string> _reflectedPropertyNames;
 
         /// <summary>
         /// Gets a value indicating whether this instance has changes (is dirty).
@@ -64,6 +70,28 @@ namespace WpfPlus.Mvvm
         private event EventHandler? _hasChangesChanged;
 
         private event PropertyChangedEventHandler? _propertyChanged;
+
+        protected ViewModelBase(PropertyNameValidationType propertyNameValidation)
+        {
+            var shallThrowExceptions = (propertyNameValidation & PropertyNameValidationType.ThrowExceptions) == PropertyNameValidationType.ThrowExceptions;
+
+            if ((propertyNameValidation & PropertyNameValidationType.UseReflection) == 0)
+            {
+                _reflectedPropertyNames = new HashSet<string>();
+                IsValidPropertyName = _ => true;
+            }
+            else
+            {
+                BindingFlags bf = (propertyNameValidation & PropertyNameValidationType.AcceptNonPublic) == PropertyNameValidationType.AcceptNonPublic
+                    ? BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public
+                    : BindingFlags.Instance | BindingFlags.Public;
+                var props = GetType().GetProperties(bf);
+                _reflectedPropertyNames = props.Select(p => p.Name).Distinct().ToHashSet();
+                var acceptEmpty = (propertyNameValidation & PropertyNameValidationType.AcceptEmptyName) == PropertyNameValidationType.AcceptEmptyName;
+
+                IsValidPropertyName = name => validIfNameReflected(name, shallThrowExceptions, acceptEmpty);
+            }
+        }
 
         /// <summary>
         /// Sets the <see cref="HasChanges" property to <c>false</c>./>
@@ -106,7 +134,7 @@ namespace WpfPlus.Mvvm
             // unrolled, to put this check outside of the loop (minimal performance hit)
             if (_propertyChanged != null && propertyNames != null)
             {
-                foreach (var propertyName in propertyNames)
+                foreach (var propertyName in propertyNames.Where(IsValidPropertyName))
                 {
                     invokePropertyChanged(propertyName);
                 }
@@ -135,7 +163,7 @@ namespace WpfPlus.Mvvm
         ///     <see cref="HasChanges"/> property to <c>true</c>.</param>
         protected void RaisePropertyChanged(string propertyName, bool setChangedFlag = true)
         {
-            if (_propertyChanged != null)
+            if (IsValidPropertyName(propertyName) && _propertyChanged != null)
             {
                 invokePropertyChanged(propertyName);
             }
@@ -144,6 +172,7 @@ namespace WpfPlus.Mvvm
                 SetChanged();
             }
         }
+
 
         private void invokePropertyChanged(string propertyName)
         {
@@ -155,5 +184,30 @@ namespace WpfPlus.Mvvm
         }
 
         private void raiseHasChangedChanged() => _hasChangesChanged?.Invoke(this, EventArgs.Empty);
+
+        private bool validIfNameReflected(string name, bool throwIfInvalid, bool allowEmpty)
+        {
+            var valid = name is string str && (_reflectedPropertyNames.Contains(str) || str.Length == 0 && allowEmpty);
+            if (throwIfInvalid && !valid)
+            {
+                throw new ArgumentException($"Property '{name}' does not exist.");
+            }
+            return valid;
+        }
+
+
+        [Flags]
+        protected enum PropertyNameValidationType
+        {
+            NoValidation = 0,
+
+            UseReflection = 1,
+
+            ThrowExceptions = 2,
+
+            AcceptNonPublic = 4,
+
+            AcceptEmptyName = 8
+        }
     }
 }
