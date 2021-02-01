@@ -1,0 +1,208 @@
+﻿<Window
+    x:Class="WpfPlus.TestLight"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WpfPlus"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="TestLight"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <ResourceDictionary>
+            <Style TargetType="{x:Type Window}">
+                <Setter Property="Background" Value="{DynamicResource WindowBackgroundBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource WindowForegroundBrush}" />
+            </Style>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Colors/LightColors.xaml" />
+                <ResourceDictionary Source="../Brushes/ThemeBrushes.xaml" />
+
+                <ResourceDictionary Source="../Styles/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <StackPanel Margin="3,10,3,3" Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="In Foreground1">
+                    <TextBlock.Foreground>
+                        <SolidColorBrush Color="{StaticResource ForegroundColor1}" />
+                    </TextBlock.Foreground>
+                </TextBlock>
+                <TextBlock Margin="20,0,0,0" Text="In Foreground1">
+                    <TextBlock.Foreground>
+                        <SolidColorBrush Color="{StaticResource ForegroundColor1}" />
+                    </TextBlock.Foreground>
+                    <TextBlock.Background>
+                        <SolidColorBrush Color="{StaticResource BackgroundColor1}" />
+                    </TextBlock.Background>
+                </TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="In Foreground2">
+                    <TextBlock.Foreground>
+                        <SolidColorBrush Color="{StaticResource ForegroundColor2}" />
+                    </TextBlock.Foreground>
+                </TextBlock>
+                <TextBlock Margin="20,0,0,0" Text="In Foreground2@3">
+                    <TextBlock.Foreground>
+                        <SolidColorBrush Color="{StaticResource ForegroundColor2}" />
+                    </TextBlock.Foreground>
+                    <TextBlock.Background>
+                        <SolidColorBrush Color="{StaticResource BackgroundColor3}" />
+                    </TextBlock.Background>
+                </TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="In Foreground3">
+                    <TextBlock.Foreground>
+                        <SolidColorBrush Color="{StaticResource ForegroundColor3}" />
+                    </TextBlock.Foreground>
+                </TextBlock>
+                <TextBlock Margin="20,0,0,0" Text="In Foreground3@4">
+                    <TextBlock.Foreground>
+                        <SolidColorBrush Color="{StaticResource ForegroundColor3}" />
+                    </TextBlock.Foreground>
+                    <TextBlock.Background>
+                        <SolidColorBrush Color="{StaticResource BackgroundColor4}" />
+                    </TextBlock.Background>
+                </TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="In Foreground4">
+                    <TextBlock.Foreground>
+                        <SolidColorBrush Color="{StaticResource ForegroundColor4}" />
+                    </TextBlock.Foreground>
+                </TextBlock>
+                <TextBlock Margin="20,0,0,0" Text="In Foreground4@5">
+                    <TextBlock.Foreground>
+                        <SolidColorBrush Color="{StaticResource ForegroundColor4}" />
+                    </TextBlock.Foreground>
+                    <TextBlock.Background>
+                        <SolidColorBrush Color="{StaticResource BackgroundColor5}" />
+                    </TextBlock.Background>
+                </TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="In Foreground5">
+                    <TextBlock.Foreground>
+                        <SolidColorBrush Color="{StaticResource ForegroundColor5}" />
+                    </TextBlock.Foreground>
+                </TextBlock>
+                <TextBlock Margin="20,0,0,0" Text="In Foreground5@6">
+                    <TextBlock.Foreground>
+                        <SolidColorBrush Color="{StaticResource ForegroundColor5}" />
+                    </TextBlock.Foreground>
+                    <TextBlock.Background>
+                        <SolidColorBrush Color="{StaticResource BackgroundColor6}" />
+                    </TextBlock.Background>
+                </TextBlock>
+            </StackPanel>
+            <StackPanel Margin="0,20,0,0" Orientation="Horizontal">
+                <TextBlock Foreground="{StaticResource TextBoxForegroundBrush}" Text="in a Text, " />
+                <TextBlock Text="this is a definite ">
+                    <TextBlock.Foreground>
+                        <SolidColorBrush Color="{StaticResource ErrorColor2}" />
+                    </TextBlock.Foreground>
+                </TextBlock>
+                <TextBlock Text="Error">
+                    <TextBlock.Foreground>
+                        <SolidColorBrush Color="{StaticResource ErrorColor1}" />
+                    </TextBlock.Foreground>
+                </TextBlock>
+                <TextBlock Foreground="{StaticResource TextBoxForegroundBrush}" Text=", I'd say" />
+                <TextBlock
+                    Margin="40,0,0,0"
+                    Padding="5,1,5,1"
+                    Text="LookAtThis">
+                    <TextBlock.Foreground>
+                        <SolidColorBrush Color="{StaticResource ErrorColor2}" />
+                    </TextBlock.Foreground>
+                    <TextBlock.Background>
+                        <SolidColorBrush Color="{StaticResource ErrorColor1}" />
+                    </TextBlock.Background>
+                </TextBlock>
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Foreground="{StaticResource TextBoxForegroundBrush}" Text="in a Text, " />
+                <TextBlock Text="this is also a ">
+                    <TextBlock.Foreground>
+                        <SolidColorBrush Color="{StaticResource WarningColor2}" />
+                    </TextBlock.Foreground>
+                </TextBlock>
+                <TextBlock Text="Warning">
+                    <TextBlock.Foreground>
+                        <SolidColorBrush Color="{StaticResource WarningColor1}" />
+                    </TextBlock.Foreground>
+                </TextBlock>
+                <TextBlock Foreground="{StaticResource TextBoxForegroundBrush}" Text=", I think" />
+                <TextBlock
+                    Margin="40,0,0,0"
+                    Padding="5,1,5,1"
+                    Text="LookAtThis">
+                    <TextBlock.Foreground>
+                        <SolidColorBrush Color="{StaticResource WarningColor2}" />
+                    </TextBlock.Foreground>
+                    <TextBlock.Background>
+                        <SolidColorBrush Color="{StaticResource WarningColor1}" />
+                    </TextBlock.Background>
+                </TextBlock>
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Foreground="{StaticResource TextBoxForegroundBrush}" Text="in bubbles, " />
+                <TextBlock Text="this may be a ">
+                    <TextBlock.Foreground>
+                        <SolidColorBrush Color="{StaticResource InfoColor2}" />
+                    </TextBlock.Foreground>
+                </TextBlock>
+                <TextBlock Text="Message">
+                    <TextBlock.Foreground>
+                        <SolidColorBrush Color="{StaticResource InfoColor1}" />
+                    </TextBlock.Foreground>
+                </TextBlock>
+                <TextBlock Foreground="{StaticResource TextBoxForegroundBrush}" Text=", I reckon" />
+                <TextBlock
+                    Margin="40,0,0,0"
+                    Padding="5,1,5,1"
+                    Text="LookAtThis">
+                    <TextBlock.Foreground>
+                        <SolidColorBrush Color="{StaticResource InfoColor2}" />
+                    </TextBlock.Foreground>
+                    <TextBlock.Background>
+                        <SolidColorBrush Color="{StaticResource InfoColor1}" />
+                    </TextBlock.Background>
+                </TextBlock>
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Foreground="{StaticResource TextBoxForegroundBrush}" Text="When written, " />
+                <TextBlock Text="this can be seen ">
+                    <TextBlock.Foreground>
+                        <SolidColorBrush Color="{StaticResource SuccessColor2}" />
+                    </TextBlock.Foreground>
+                </TextBlock>
+                <TextBlock Text="As Success">
+                    <TextBlock.Foreground>
+                        <SolidColorBrush Color="{StaticResource SuccessColor1}" />
+                    </TextBlock.Foreground>
+                </TextBlock>
+                <TextBlock Foreground="{StaticResource TextBoxForegroundBrush}" Text=", I define now" />
+                <TextBlock
+                    Margin="40,0,0,0"
+                    Padding="5,1,5,1"
+                    Text="LookAtThis">
+                    <TextBlock.Foreground>
+                        <SolidColorBrush Color="{StaticResource SuccessColor2}" />
+                    </TextBlock.Foreground>
+                    <TextBlock.Background>
+                        <SolidColorBrush Color="{StaticResource SuccessColor1}" />
+                    </TextBlock.Background>
+                </TextBlock>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

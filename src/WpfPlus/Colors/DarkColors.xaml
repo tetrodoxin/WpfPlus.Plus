@@ -17,4 +17,13 @@
     <Color x:Key="SelectionColor2">#207097</Color>
     <Color x:Key="SelectionColor2Emphasized">#26A0DA</Color>
     <Color x:Key="RedColor">#E31212</Color>
+
+    <Color x:Key="ErrorColor1">#FFE31212</Color>
+    <Color x:Key="ErrorColor2">#FFA00000</Color>
+    <Color x:Key="WarningColor1">#FFE0D020</Color>
+    <Color x:Key="WarningColor2">#FFB08020</Color>
+    <Color x:Key="InfoColor1">#FF4060F0</Color>
+    <Color x:Key="InfoColor2">#FF2040C0</Color>
+    <Color x:Key="SuccessColor1">#FF20D040</Color>
+    <Color x:Key="SuccessColor2">#FF008000</Color>
 </ResourceDictionary>

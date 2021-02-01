@@ -16,7 +16,17 @@
     <SolidColorBrush x:Key="SelectionColor1EmphasizedBrush" Color="{DynamicResource SelectionColor1Emphasized}" />
     <SolidColorBrush x:Key="SelectionColor2Brush" Color="{DynamicResource SelectionColor2}" />
     <SolidColorBrush x:Key="SelectionColor2EmphasizedBrush" Color="{DynamicResource SelectionColor2Emphasized}" />
+
     <SolidColorBrush x:Key="RedColorBrush" Color="{DynamicResource RedColor}" />
+
+    <SolidColorBrush x:Key="ErrorColor1Brush" Color="{DynamicResource ErrorColor1}" />
+    <SolidColorBrush x:Key="ErrorColor2Brush" Color="{DynamicResource ErrorColor2}" />
+    <SolidColorBrush x:Key="WarningColor1Brush" Color="{DynamicResource WarningColor1}" />
+    <SolidColorBrush x:Key="WarningColor2Brush" Color="{DynamicResource WarningColor2}" />
+    <SolidColorBrush x:Key="InfoColor1Brush" Color="{DynamicResource InfoColor1}" />
+    <SolidColorBrush x:Key="InfoColor2Brush" Color="{DynamicResource InfoColor2}" />
+    <SolidColorBrush x:Key="SuccessColor1Brush" Color="{DynamicResource SuccessColor1}" />
+    <SolidColorBrush x:Key="SuccessColor2Brush" Color="{DynamicResource SuccessColor2}" />
 
     <!--  Window  -->
     <SolidColorBrush x:Key="WindowBackgroundBrush" Color="{DynamicResource BackgroundColor3}" />

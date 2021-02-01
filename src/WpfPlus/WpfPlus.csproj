@@ -38,7 +38,22 @@
     <Version>1.4.0.1</Version>
   </PropertyGroup>
 
+  <ItemGroup Condition="'$(Configuration)'=='Release'" >
+    <Compile Remove="TestViews\TestDark.xaml.cs" />
+    <Compile Remove="TestViews\TestLight.xaml.cs" />
+    <Page Remove="TestViews\TestDark.xaml" />
+    <Page Remove="TestViews\TestLight.xaml" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(Configuration)'=='Release'">
+    <None Include="TestViews\TestDark.xaml" />
+    <None Include="TestViews\TestDark.xaml.cs" />
+    <None Include="TestViews\TestLight.xaml" />
+    <None Include="TestViews\TestLight.xaml.cs" />
+  </ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="XamlBehaviors.Mirror" Version="1.1.29" />
   </ItemGroup>
+
 </Project>
