@@ -3,10 +3,6 @@
   <PropertyGroup>
     <TargetFrameworks>netcoreapp3.1;net5.0-windows7</TargetFrameworks>
     <LangVersion>9.0</LangVersion>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <Version>1.4.0</Version>
-    <PackageVersion>1.4.0</PackageVersion>
-    <AssemblyVersion>1.4.0</AssemblyVersion>
     <Copyright>Copyright © 2016-2020</Copyright>
     <UseWPF>true</UseWPF>
     <PackageId>WpfPlus.Plus</PackageId>
@@ -28,7 +24,18 @@
       - supports .Net Core 3.1, Net 5.0 for Windows (&gt;=7)
     </PackageDescription>
 
-    <PackageReleaseNotes></PackageReleaseNotes>
+    <PackageReleaseNotes>fixed assembly attributes, version and tags</PackageReleaseNotes>
+
+    <Description>Fork of WpfPlus (Marcus Wichelmann): Modern flat themes and useful controls for your next WPF Application
+
+      - Includes TreeViews
+      - normalized selection colors for supported controls
+      - includes base classes for view models, delegate based commands, synchronized view model collections
+      - supports .Net Core 3.1, Net 5.0 for Windows (&gt;=7)</Description>
+
+    <Company />
+
+    <Version>1.4.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
